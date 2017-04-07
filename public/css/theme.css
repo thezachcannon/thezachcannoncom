@@ -1,1 +1,47 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  background: #003366;
+  margin-bottom: 25px;
+   
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 35px; 
+  background-color: #222;
+  border-color: #080808;
+  padding: 0px;
+}
+.headerTitle{
+  color: white
+}
+.user {
+  display: inline-block;
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
 
+  background-size: cover;
+}
+@media (min-width: 768px) {
+    .navbar-collapse {
+        height: auto !important;
+        padding-left: 0 !important;
+    }
+}
+.modal {
+    display: block;
+}
+
+.hide {
+    display: none;
+}

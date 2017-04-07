@@ -1,26 +1,19 @@
-<!-- views/partials/header.ejs -->
-<nav class="navbar navbar-default" role="navigation">
-<div class="container-fluid">
-  <!-- Brand and toggle get grouped for better mobile display -->
+<nav class="navbar navbar-inverse" role="navigation">
   <div class="navbar-header">
-
-    <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-    <a class="navbar-brand" href="/">@thezachcannon</a>
+    <button type="button" class="navbar-toggle" ng-click="isNavCollapsed = !isNavCollapsed">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+    <a class="navbar-brand" href="/"><i class="fa fa-spin fa-user-circle headerTitle"></i> thezachcannon</a>
   </div>
-
-  <!-- Collect the nav links, forms, and other content for toggling -->
-  <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
-
-    <ul  ng-click="navCollapsed = true" class="nav navbar-nav">
+  <div class="collapse navbar-collapse" uib-collapse="!isNavCollapsed">
+    <ul ng-click='isNavCollapsed = !isNavCollapsed' class="nav navbar-nav">
       <li><a href="/">Home</a></li>
-      <li><a href="/info">Info</a></li>
+      <li><a href='/about'>About</a></li>
+      <li><a href="/code">Code</a></li>
+      <li ng-if="userService.isAuthenticated"><a href="/admin">Admin</a></li>
     </ul>
   </div>
-</div>
-  <!-- /.navbar-collapse -->
 </nav>

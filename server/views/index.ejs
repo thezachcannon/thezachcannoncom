@@ -7,19 +7,23 @@
   <% include ../includes/head %>
 </head>
 
-<body ng-app="app">
 
-  <header>
-    <% include ../includes/header %>
-  </header>
-
-  <div class="container-fluid" ng-view>
-
-  </div>
-  <footer>
-    <% include ../includes/footer %>
-  </footer>
-
+<div ng-app="app">
+<div ng-controller="indexCtrl">
+  
+    <header>
+      <% include ../includes/header %>
+    </header>
+    <div class="container" ng-view>
+      
+    </div>
+      <footer class="footer">
+      <% include ../includes/footer %>
+    </footer>
+</div>
 </body>
+
+
+
 
 </html>

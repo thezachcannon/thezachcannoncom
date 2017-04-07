@@ -1,0 +1,33 @@
+<div style='text-align: center' ng-if="isBusy">
+  <i class="fa fa-spin fa-cog fa-3x headerTitle"></i>
+</div>
+<body>
+<div class='row'>
+    <label for="username"><span class="headerTitle">Username</span> <input name="username" class="form-control" type="text" ng-model="username"/></label>
+    <label for"password"> <span class="headerTitle">Password</span> <input name="password" class="form-control" type="password" ng-model="password"/></label>
+    <label for"admin"> <span class="headerTitle">Admin</span> <input name="admin" class="form-control" type="checkbox" ng-model="admin"/></label>
+    <button class="btn btn-success" ng-click="addUser()">Add</button>
+</div>
+<div class="headerTitle" ng-if="!isBusy">
+  <table class="table table-responsive">
+      <tr>
+        <th>
+         Username
+        </th>
+        <th>
+        Admin
+        </th>
+        <th>
+        Options
+        </th>
+      </tr>
+      <tr ng-repeat="user in users">
+        <td class="headerTitle">{{user.username}}</td>
+        <td><input type='checkbox' ng-model="user.admin"></td>
+        <td class="headerTitle"><a ng-click="updateUser(user)">Update</a><a ng-click='deleteUser(user)'>Delete</a></td>
+      </tr>
+  </table>
+</div>
+</body>
+
+

@@ -1,0 +1,92 @@
+<div style='text-align: center' ng-hide="!loading">
+  <i class="fa fa-spin fa-cog fa-3x headerTitle"></i>
+</div>
+<div ng-show='!loading'>
+<br>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-xs-12 col-md-6">
+      <div class="well well-sm">
+        <div class="row">
+          <div class="col-sm-6 col-md-4">
+            <img src="{{generalInfo.avatar_url}}" class="img-responsive" />
+          </div>
+          <div class="col-sm-6 col-md-8">
+            <h4> <a href={{generalInfo.html_url}}>{{generalInfo.login}}</a></h4>
+            <p>
+              <i class="fa fa-user-circle"></i> {{generalInfo.name}}
+              <br />
+              <i class="fa fa-globe"></i> {{generalInfo.location}}
+              <br />
+              <i class="fa fa-github-alt"></i> Established: {{generalInfo.created_at | date: 'MMMM yyyy'}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+  <h3 class="headerTitle">Projects</h3>
+  <div style='background: white'>
+    <table class="table table-responsive">
+      <tr>
+        <th>
+          Name
+        </th>
+        <th>
+          Description
+        </th>
+      </tr>
+      <tr>
+        <td>
+          Personal Website
+        </td>
+        <td>
+          A personal website to show off my development capabilities. Created with <b>B</b>ootsrap, <b>E</b>xpress, <b>A</b>ngular and <b>N</b>ode!
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="https://itunes.apple.com/us/app/dmp-technician-app/id1145948890?mt=8">TechApp</a>
+        </td>
+        <td>
+          A mobile application used by dealers of DMP products to perform various functions with our equipment. A one stop shop for technicians on the go. Coded in conjuction with team while employed at DMP.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href='http://thezachcannon.github.com'>Beller's Golden (Sample)</a>
+        </td>
+        <td>
+          A sample site for my aunt's dog breeding business. Created with Angular. Will be moving this over to a headless wordpress/drupal site.
+        </td>
+      </tr>
+    </table>
+  </div>
+  <h3 class="headerTitle">Repos</h3>
+  <div style='background: white'>
+    <table class="table table-responsive">
+      <tr>
+        <th>
+          Name
+        </th>
+        <th>
+          Description
+        </th>
+        <th>
+          Last Updated
+        </th>
+      </tr>
+      <tr ng-repeat="repo in repos">
+        <td>
+          <a href="{{repo.html_url}}">{{repo.name}}</a>
+        </td>
+        <td>
+          {{repo.description}}
+        </td>
+        <td>
+          {{repo.updated_at | date: 'medium'}}
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
