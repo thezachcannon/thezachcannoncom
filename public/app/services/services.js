@@ -2,25 +2,25 @@ angular.module('app.services', [])
   .factory('services', ['$http', function ($http) {
     return {
       getGitHubInfo: function () {
-        return $http.get('http://localhost:3000/api/getgithubinfo')
+        return $http.get('http://thezachcannon.herokuapp.com/api/getgithubinfo')
       },
       getRepos: function () {
-        return $http.get('http://localhost:3000/api/getrepos')
+        return $http.get('http://thezachcannon.herokuapp.com/api/getrepos')
       },
       login: function (body) {
-        return $http.post('http://localhost:3000/api/authenticate', body)
+        return $http.post('http://thezachcannon.herokuapp.com/api/authenticate', body)
       },
       getUsers: function(){
-        return $http.get('http://localhost:3000/api/users');
+        return $http.get('http://thezachcannon.herokuapp.com/api/users');
       },
       deleteUser: function(user){
-        return $http.delete('http://localhost:3000/api/user/' + user._id)
+        return $http.delete('http://thezachcannon.herokuapp.com/api/user/' + user._id)
       },
       addUser: function (user){
-        return $http.post('http://localhost:3000/api/user/', {username: user.username, password: user.password});
+        return $http.post('http://thezachcannon.herokuapp.com/api/user/', {username: user.username, password: user.password});
       },
       updateUser: function (user){
-        return $http.put('http://localhost:3000/api/user', user);
+        return $http.put('http://thezachcannon.herokuapp.com/api/user', user);
       }
     }
   }])
