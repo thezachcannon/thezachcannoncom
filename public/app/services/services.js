@@ -10,17 +10,27 @@ angular.module('app.services', [])
       login: function (body) {
         return $http.post('http://thezachcannon.herokuapp.com/api/authenticate', body)
       },
-      getUsers: function(){
+      getUsers: function () {
         return $http.get('http://thezachcannon.herokuapp.com/api/users');
       },
-      deleteUser: function(user){
+      deleteUser: function (user) {
         return $http.delete('http://thezachcannon.herokuapp.com/api/user/' + user._id)
       },
-      addUser: function (user){
-        return $http.post('http://thezachcannon.herokuapp.com/api/user/', {username: user.username, password: user.password});
+      addUser: function (user) {
+        return $http.post('http://thezachcannon.herokuapp.com/api/user/', {
+          username: user.username,
+          password: user.password
+        });
       },
-      updateUser: function (user){
+      updateUser: function (user) {
         return $http.put('http://thezachcannon.herokuapp.com/api/user', user);
+      },
+      getAbout: function () {
+        return $http.get('https://api.github.com/repos/thezachcannon/thezachcannon/contents/about.html', {
+          "headers": {
+            "accept": "application/vnd.github.VERSION.raw"
+          }
+        })
       }
     }
   }])
@@ -38,4 +48,3 @@ angular.module('app.services', [])
       }
     }
   })
-
