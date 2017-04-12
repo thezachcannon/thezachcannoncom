@@ -3,6 +3,7 @@ var config = require('./config');
 var bodyParser = require('body-parser');
 var githubService = require('./server/repo/github.js')
 var User = require('./server/DBAccess/user/user.js');
+var Blog = require('./server/DBAccess/blog/blog.js');
 var jwt = require('jsonwebtoken');
 var port = process.env.PORT || 3000;
 var environment = process.env.NODE_ENV || 'development';
@@ -52,6 +53,19 @@ apiRoutes.get('/getRepos', function (req, res) {
     res.send(response);
   });
 })
+
+
+apiRoutes.get('/blogs', function (req,res){
+  Blog.getAll().then(function (response) {
+  res.json(response);
+  });
+})
+apiRoutes.get('/blog/:id', function (req, res){
+  Blog.getBlog(req.params.id).then(function(response){
+    res.json(response);
+  })
+})
+
 apiRoutes.post('/authenticate', function (req, res) {
   console.log(req.body)
   var username = req.body.username;
@@ -65,7 +79,6 @@ apiRoutes.post('/authenticate', function (req, res) {
     res.json(404,error);
   })
 })
-
 
 apiRoutes.use(function (req, res, next) {
   // check header or url parameters or post parameters for token
@@ -125,6 +138,25 @@ apiRoutes.delete('/user/:id', function(req, res){
     res.json(response);
   })
 })
+apiRoutes.post('/blog', function (req, res) {
+  console.log(req.body);
+  Blog.create(req.body).then(function (response) {
+    res.json(response);
+  })
+})
+apiRoutes.put('/blog', function (req, res){
+  Blog.updateBlog(req.body).then(function(response){
+    res.json(response);
+  })
+})
+apiRoutes.delete('/blog/:id', function(req, res){
+  console.log(req.params.id);
+  Blog.delete(req.params.id).then(function(response){
+    res.json(response);
+  }
+)})
+
+
 app.use('/api', apiRoutes);
 //default to index page for Angular routing
 app.get('*', function (request, response) {

@@ -7,6 +7,9 @@ angular.module('app.services', [])
       getRepos: function () {
         return $http.get('http://thezachcannon.herokuapp.com/api/getrepos')
       },
+      getBlogs: function (){
+        return $http.get('http://thezachcannon.herokuapp.com/api/blogs')
+      },
       login: function (body) {
         return $http.post('http://thezachcannon.herokuapp.com/api/authenticate', body)
       },

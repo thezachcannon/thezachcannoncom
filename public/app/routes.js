@@ -28,6 +28,14 @@ angular.module('app.routes', [])
         tipe: 'normal'
       }
     })
+    .when('blog',{
+      templateUrl: '/partials/blog/home.ejs',
+      controller: 'blogHomeCtrl',
+      access: {
+        isFree: true,
+        tipe: normal
+      }
+    })
     .when('/admin', {
       templateUrl: '/partials/admin/home.ejs',
       controller: 'adminHomeCtrl',
