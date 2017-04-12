@@ -1,5 +1,6 @@
 angular.module('app', ['ngResource', 'ngRoute', 'ngAnimate', 'ngTouch', 'ui.bootstrap', 'app.routes', 'app.services',
- 'app.userService','app.homepageCtrl', 'app.aboutCtrl', 'app.codeCtrl', 'app.blogHomeCtrl', 'app.loginCtrl', 'app.adminHomeCtrl', 'app.indexCtrl'])
+ 'app.userService','app.homepageCtrl', 'app.aboutCtrl', 'app.codeCtrl', 'app.blogHomeCtrl', 'app.loginCtrl', 'app.adminHomeCtrl',
+  'app.indexCtrl'])
 .run(['$rootScope', '$location', 'UserService', function($rootScope, $location,  UserService){
   $rootScope.$on('$routeChangeStart', function (scope, currView, preView){
     console.log(scope);

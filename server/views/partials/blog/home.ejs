@@ -1,8 +1,6 @@
 <div class='headerTitle' ng-repeat='blog in blogs'>
   <h1 class='headerTitle'>{{blog.title}}</h1>
   <p class='headerTitle'>{{blog.created_at | date: 'MM/dd/yyyy'}}<p>
-  <div class='headerTitle'>
-    {{blog.content}}
-  </div>
+  <div ng-bind-html='toTrustedHTML(blog.content)'></div>
   <hr class='headerTitle'>
 </div>
