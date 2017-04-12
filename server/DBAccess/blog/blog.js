@@ -22,7 +22,7 @@ module.exports = {
   },
   getAll: function () {
     return new Promise(function (resolve, reject) {
-      Blog.find({}, function (err, blogs) {
+      Blog.find({}).sort('-created_at').exec(function (err, blogs) {
         if (err) {
           reject(err);
         }
