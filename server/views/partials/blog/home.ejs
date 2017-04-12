@@ -1,3 +1,7 @@
-<li class='headerTitle' ng-repeat='blog in blogs'>
-  {{blog.title}}
-</li>
+<div class='headerTitle' ng-repeat='blog in blogs'>
+  <h1 class='headerTitle'>{{blog.title}}</h1>
+  <h3 class='headerTitle'>{{blog.created_at | date: 'mm/dd/yyy'}}<h3>
+  <div class='headerTitle'>
+    {{blog.content}}
+  </div>
+</div>
