@@ -4,7 +4,8 @@ var blogSchema = new Schema({
   title: String,
   content: String,
   tags: String,
-  updated_at: Date
+  updated_at: Date,
+  created_at: Date
 })
 blogSchema.pre('save', function(next){
   var currentDate = new Date();
