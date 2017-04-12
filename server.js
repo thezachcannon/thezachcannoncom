@@ -39,6 +39,10 @@ app.get('/partials/admin/:partialPath', function (request, response) {
   response.render('partials/admin/' + request.params.partialPath);
 });
 
+app.get('/partials/blog/:partialPath', function (request, response){
+  response.render('partials/blog/' + request.params.partialPath)
+})
+
 //API routes
 var apiRoutes = express.Router();
 
