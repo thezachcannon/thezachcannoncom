@@ -28,12 +28,12 @@ angular.module('app.routes', [])
         tipe: 'normal'
       }
     })
-    .when('blog',{
+    .when('/blog', {
       templateUrl: '/partials/blog/home.ejs',
       controller: 'blogHomeCtrl',
       access: {
         isFree: true,
-        tipe: normal
+        tipe: 'normal'
       }
     })
     .when('/admin', {
