@@ -20,10 +20,6 @@ var github = new GitHubApi({
 
 module.exports = {
   getProfileInfo: function() {
-    github.authenticate({
-      type: "oauth",
-      token: Auth_Token
-    })
     return new Promise(function(resolve, reject) {
       github.users.getForUser({
         username: 'thezachcannon'
@@ -38,10 +34,6 @@ module.exports = {
     })
   },
   getRepos: function () {
-    github.authenticate({
-      type: "oauth",
-      token: Auth_Token
-    })
     return new Promise(function(resolve, reject) {
       github.repos.getForUser({
         username: 'thezachcannon'
