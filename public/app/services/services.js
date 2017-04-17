@@ -40,13 +40,10 @@ angular.module('app.services', [])
   .factory('AuthInterceptor', function ($window, $q, UserService) {
     return {
       request: function (config) {
-        console.log('Interception')
-        console.log(UserService.auth_token);
         config.params = config.param || {};
         if (UserService.auth_token) {
           config.params.token = UserService.auth_token;
         }
-        console.log(config);
         return config || $q.when(config);
       }
     }

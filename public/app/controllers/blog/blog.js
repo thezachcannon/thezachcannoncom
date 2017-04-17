@@ -8,7 +8,6 @@ angular.module('app.blogHomeCtrl', [])
       $scope.blogs = data.data;
       $scope.loading = false;
     }, function (error) {
-      console.log(error)
       $scope.loading = false;
     })  
   }])
