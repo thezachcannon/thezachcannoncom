@@ -1,7 +1,7 @@
 angular.module('app', ['ngResource', 'ngRoute', 'ngAnimate', 'ngTouch', 'ui.bootstrap', 'app.routes', 'app.services',
  'app.userService','app.homepageCtrl', 'app.aboutCtrl', 'app.codeCtrl', 'app.blogHomeCtrl', 'app.loginCtrl', 'app.adminHomeCtrl',
   'app.indexCtrl'])
-.run(['$rootScope', '$location', 'UserService', function($rootScope, $location,  UserService){
+.run(['$rootScope', '$location', '$window', 'UserService', function($rootScope, $location, $window, UserService){
   $rootScope.$on('$routeChangeStart', function (scope, currView, preView){
     console.log(scope);
     console.log(currView.access.isFree);
@@ -11,6 +11,9 @@ angular.module('app', ['ngResource', 'ngRoute', 'ngAnimate', 'ngTouch', 'ui.boot
       $location.path('/login');
     }
   })
+  $rootScope.$on('$routeChangeSuccess', function () {
+      $window.ga('send', 'pageview', { page: $location.url() });
+  });
 }])
 .config(function($httpProvider){
   $httpProvider.interceptors.push('AuthInterceptor');
