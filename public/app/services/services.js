@@ -9,6 +9,9 @@ angular.module('app.services', [])
       },
       getBlogs: function (){
         return $http.get('http://www.thezachcannon.com/api/blogs')
+      },      
+      getBlog: function (id){
+        return $http.get('http://www.thezachcannon.com/api/blog/' + id)
       },
       login: function (body) {
         return $http.post('http://www.thezachcannon.com/api/authenticate', body)
